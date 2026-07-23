@@ -9,10 +9,10 @@ description = "A simple and flexible shopping cart for Django projects"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Reza Khalili", email = "reza@reza-khalili.ir"}
+    {name = "Reza Khalili", email = "arsalankhalili688@gmail.com"}
 ]
 maintainers = [
-    {name = "Reza Khalili", email = "reza@reza-khalili.ir"}
+    {name = "Reza Khalili", email = "arsalankhalili688@gmail.com"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
