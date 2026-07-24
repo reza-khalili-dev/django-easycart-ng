@@ -40,14 +40,7 @@ jobs:
         isort --check-only src/
 
     - name: Test with pytest
+      env:
+        PYTHONPATH: ${{ github.workspace }}/src
       run: |
-        pytest --cov=cart --cov-report=xml
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        env_vars: OS,PYTHON
-        name: codecov-umbrella
-        fail_ci_if_error: false
+        pytest src/tests/ --cov=cart --cov-report=xml
