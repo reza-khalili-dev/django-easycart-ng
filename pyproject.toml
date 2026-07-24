@@ -7,7 +7,7 @@ name = "django-easycart-ng"
 version = "0.1.2"
 description = "A simple and flexible shopping cart for Django projects"
 readme = "README.md"
-license = "MIT"  # 
+license = {text = "MIT"} 
 authors = [
     {name = "Reza Khalili", email = "arsalankhalili688@gmail.com"}
 ]
