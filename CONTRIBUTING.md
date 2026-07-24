@@ -1,14 +1,14 @@
 
 ```markdown
-# Contributing to django-easy-cart
+# Contributing to django-easycart-ng
 
-Thank you for considering contributing to `django-easy-cart`! We welcome contributions from everyone.
+Thank you for considering contributing to `django-easycart-ng`! We welcome contributions from everyone.
 
 ---
 
 ## 🐛 Reporting Issues
 
-If you find a bug, please open an issue on [GitHub Issues](https://github.com/reza-khalili-dev/django-easy-cart/issues) and include:
+If you find a bug, please open an issue on [GitHub Issues](https://github.com/reza-khalili-dev/django-easycart-ng/issues) and include:
 
 - A clear description of the issue.
 - Steps to reproduce the problem.
@@ -32,8 +32,8 @@ If you have an idea for a new feature, please open an issue with the **"enhancem
 1. **Fork the repository** and clone it locally:
 
    ```bash
-   git clone https://github.com/your-username/django-easy-cart.git
-   cd django-easy-cart
+   git clone https://github.com/your-username/django-easycart-ng.git
+   cd django-easycart-ng
 
 
 
