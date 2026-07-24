@@ -8,11 +8,10 @@ This module provides view functions and classes for cart management:
 - View cart contents
 """
 
-import json
 
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from .models import Cart, CartItem, Wishlist

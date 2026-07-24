@@ -52,6 +52,7 @@ dev = [
     "flake8>=6.0.0",
     "pytest>=7.0.0",
     "pytest-django>=4.5.0",
+    "pytest-cov>=4.0.0",  # ← این خط را اضافه کنید
     "build>=1.0.0",
     "twine>=4.0.0",
     "pre-commit>=3.0.0",
@@ -97,6 +98,7 @@ addopts = "-ra -q --strict-markers"
 testpaths = [
     "tests",
 ]
+
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
