@@ -25,7 +25,7 @@ def get_cart_total_items(context):
         {% get_cart_total_items as total_items %}
         {{ total_items }}
     """
-    request = context.get('request')
+    request = context.get("request")
     if request and request.user.is_authenticated:
         try:
             cart = Cart.objects.get(user=request.user)
@@ -45,14 +45,14 @@ def get_cart_total_price(context):
         {% get_cart_total_price as total_price %}
         {{ total_price }}
     """
-    request = context.get('request')
+    request = context.get("request")
     if request and request.user.is_authenticated:
         try:
             cart = Cart.objects.get(user=request.user)
             return cart.get_total_price()
         except Cart.DoesNotExist:
             pass
-    return Decimal('0.00')
+    return Decimal("0.00")
 
 
 @register.simple_tag(takes_context=True)
@@ -65,7 +65,7 @@ def get_cart_item_count(context, product_id=None):
         {% get_cart_item_count product_id as count %}
         {{ count }}
     """
-    request = context.get('request')
+    request = context.get("request")
     if not product_id:
         return 0
 

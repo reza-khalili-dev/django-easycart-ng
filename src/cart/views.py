@@ -63,19 +63,18 @@ def add_to_cart(request):
             extra_data[key] = value
 
     cart_item = cart.add_item(
-        product_id=product_id,
-        quantity=quantity,
-        price=price,
-        **extra_data
+        product_id=product_id, quantity=quantity, price=price, **extra_data
     )
 
-    return JsonResponse({
-        "success": True,
-        "message": "Item added to cart",
-        "item_id": cart_item.id,
-        "total_items": cart.get_total_items(),
-        "total_price": str(cart.get_total_price()),
-    })
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Item added to cart",
+            "item_id": cart_item.id,
+            "total_items": cart.get_total_items(),
+            "total_price": str(cart.get_total_price()),
+        }
+    )
 
 
 @login_required
@@ -90,12 +89,14 @@ def remove_from_cart(request):
     cart = get_or_create_cart(request)
     cart.remove_item(item_id)
 
-    return JsonResponse({
-        "success": True,
-        "message": "Item removed from cart",
-        "total_items": cart.get_total_items(),
-        "total_price": str(cart.get_total_price()),
-    })
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Item removed from cart",
+            "total_items": cart.get_total_items(),
+            "total_price": str(cart.get_total_price()),
+        }
+    )
 
 
 @login_required
@@ -115,12 +116,14 @@ def update_cart_quantity(request):
 
     try:
         cart.update_quantity(item_id, quantity)
-        return JsonResponse({
-            "success": True,
-            "message": "Quantity updated",
-            "total_items": cart.get_total_items(),
-            "total_price": str(cart.get_total_price()),
-        })
+        return JsonResponse(
+            {
+                "success": True,
+                "message": "Quantity updated",
+                "total_items": cart.get_total_items(),
+                "total_price": str(cart.get_total_price()),
+            }
+        )
     except CartItem.DoesNotExist:
         return JsonResponse({"error": "Item not found"}, status=404)
 
@@ -131,12 +134,14 @@ def clear_cart(request):
     cart = get_or_create_cart(request)
     cart.clear()
 
-    return JsonResponse({
-        "success": True,
-        "message": "Cart cleared",
-        "total_items": 0,
-        "total_price": "0.00",
-    })
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Cart cleared",
+            "total_items": 0,
+            "total_price": "0.00",
+        }
+    )
 
 
 # Wishlist Views
@@ -163,11 +168,13 @@ def add_to_wishlist(request):
     wishlist, _ = Wishlist.objects.get_or_create(user=request.user)
     wishlist.add_product(product_id)
 
-    return JsonResponse({
-        "success": True,
-        "message": "Product added to wishlist",
-        "product_count": wishlist.get_product_count(),
-    })
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Product added to wishlist",
+            "product_count": wishlist.get_product_count(),
+        }
+    )
 
 
 @login_required
@@ -182,8 +189,10 @@ def remove_from_wishlist(request):
     wishlist, _ = Wishlist.objects.get_or_create(user=request.user)
     wishlist.remove_product(product_id)
 
-    return JsonResponse({
-        "success": True,
-        "message": "Product removed from wishlist",
-        "product_count": wishlist.get_product_count(),
-    })
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Product removed from wishlist",
+            "product_count": wishlist.get_product_count(),
+        }
+    )

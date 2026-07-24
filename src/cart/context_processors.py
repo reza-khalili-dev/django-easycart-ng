@@ -30,7 +30,7 @@ def cart_total(request):
             pass
 
     return {
-        'cart': cart,
-        'cart_total_price': total_price,
-        'cart_total_items': total_items,
+        "cart": cart,
+        "cart_total_price": total_price,
+        "cart_total_items": total_items,
     }
