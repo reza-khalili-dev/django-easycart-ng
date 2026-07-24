@@ -43,4 +43,4 @@ jobs:
       env:
         PYTHONPATH: ${{ github.workspace }}/src
       run: |
-        pytest src/tests/ --cov=cart --cov-report=xml
+        python -m pytest src/tests/ -v --cov=cart --cov-report=xml
