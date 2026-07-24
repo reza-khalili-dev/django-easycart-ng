@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+
 from django.contrib.auth.password_validation import (
-    UserAttributeSimilarityValidator,
-    MinimumLengthValidator,
     CommonPasswordValidator,
+    MinimumLengthValidator,
     NumericPasswordValidator,
+    UserAttributeSimilarityValidator,
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
