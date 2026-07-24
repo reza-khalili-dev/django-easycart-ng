@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/reza-khalili-dev/django-easycart-ng)](https://github.com/reza-khalili-dev/django-easycart-ng/issues)
 
-**A simple and flexible shopping cart for Django projects.**
+**A simple and flexible shopping cart for Django projects .**
 
 `django-easycart-ng` is a lightweight, reusable shopping cart app for Django. It provides essential cart functionality with a clean API, making it easy to integrate into any Django project.
 
