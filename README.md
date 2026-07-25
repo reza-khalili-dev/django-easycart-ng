@@ -1,6 +1,6 @@
 # django-easycart-ng
 
-[![PyPI version](https://badge.fury.io/py/django-easycart-ng.svg)](https://badge.fury.io/py/django-easycart-ng)
+[![PyPI](https://img.shields.io/pypi/v/django-easycart-ng)](https://pypi.org/project/django-easycart-ng/)
 [![Python Version](https://img.shields.io/pypi/pyversions/django-easycart-ng.svg)](https://pypi.org/project/django-easycart-ng/)
 [![Django Version](https://img.shields.io/badge/Django-3.2%20%7C%204.0%20%7C%205.0-green.svg)](https://www.djangoproject.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
