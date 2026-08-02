@@ -64,7 +64,7 @@ class Cart(models.Model):
         quantity: int = 1,
         price: Optional[Decimal] = None,
         **extra_data: Any,
-    ):
+    ) -> "CartItem":
         """
         Add an item to the cart or update quantity if it already exists.
         """
@@ -92,7 +92,7 @@ class Cart(models.Model):
         """Remove a specific item from the cart."""
         self.items.filter(id=item_id).delete()
 
-    def update_quantity(self, item_id: int, quantity: int):
+    def update_quantity(self, item_id: int, quantity: int) -> "CartItem":
         """
         Update the quantity of a specific cart item.
         """

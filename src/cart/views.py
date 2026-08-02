@@ -8,15 +8,17 @@ This module provides view functions and classes for cart management:
 - View cart contents
 """
 
+from typing import Optional
+
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from .models import Cart, CartItem, Wishlist
 
 
-def get_or_create_cart(request):
+def get_or_create_cart(request: HttpRequest) -> Optional[Cart]:
     """
     Get the current user's cart or create one if it doesn't exist.
     For authenticated users, uses the OneToOneField.
@@ -30,7 +32,7 @@ def get_or_create_cart(request):
 
 
 @login_required
-def cart_detail(request):
+def cart_detail(request: HttpRequest) -> HttpResponse:
     """Display the current user's cart."""
     cart = get_or_create_cart(request)
     context = {
@@ -43,7 +45,7 @@ def cart_detail(request):
 
 @login_required
 @require_POST
-def add_to_cart(request):
+def add_to_cart(request: HttpRequest) -> JsonResponse:
     """Add an item to the cart."""
     product_id = request.POST.get("product_id")
     quantity = int(request.POST.get("quantity", 1))
@@ -77,7 +79,7 @@ def add_to_cart(request):
 
 @login_required
 @require_POST
-def remove_from_cart(request):
+def remove_from_cart(request: HttpRequest) -> JsonResponse:
     """Remove an item from the cart."""
     item_id = request.POST.get("item_id")
 
@@ -99,7 +101,7 @@ def remove_from_cart(request):
 
 @login_required
 @require_POST
-def update_cart_quantity(request):
+def update_cart_quantity(request: HttpRequest) -> JsonResponse:
     """Update the quantity of a cart item."""
     item_id = request.POST.get("item_id")
     quantity = int(request.POST.get("quantity", 1))
@@ -127,7 +129,7 @@ def update_cart_quantity(request):
 
 
 @login_required
-def clear_cart(request):
+def clear_cart(request: HttpRequest) -> JsonResponse:
     """Clear all items from the cart."""
     cart = get_or_create_cart(request)
     cart.clear()
@@ -144,7 +146,7 @@ def clear_cart(request):
 
 # Wishlist Views
 @login_required
-def wishlist_detail(request):
+def wishlist_detail(request: HttpRequest) -> HttpResponse:
     """Display the current user's wishlist."""
     wishlist, _ = Wishlist.objects.get_or_create(user=request.user)
     context = {
@@ -156,7 +158,7 @@ def wishlist_detail(request):
 
 @login_required
 @require_POST
-def add_to_wishlist(request):
+def add_to_wishlist(request: HttpRequest) -> JsonResponse:
     """Add a product to the wishlist."""
     product_id = request.POST.get("product_id")
 
@@ -177,7 +179,7 @@ def add_to_wishlist(request):
 
 @login_required
 @require_POST
-def remove_from_wishlist(request):
+def remove_from_wishlist(request: HttpRequest) -> JsonResponse:
     """Remove a product from the wishlist."""
     product_id = request.POST.get("product_id")
 

@@ -5,10 +5,14 @@ This module provides context processors to make cart data available
 to all templates across the entire project.
 """
 
+from typing import Any, Dict
+
+from django.http import HttpRequest
+
 from .models import Cart
 
 
-def cart_total(request):
+def cart_total(request: HttpRequest) -> Dict[str, Any]:
     """
     Make cart information available to all templates.
 
