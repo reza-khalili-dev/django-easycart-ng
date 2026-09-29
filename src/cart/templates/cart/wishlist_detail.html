@@ -1,0 +1,9 @@
+{% block content %}
+<h1>Wishlist</h1>
+<p>{{ product_count }} item(s)</p>
+<ul>
+  {% for product_id in wishlist.product_ids %}
+    <li>{{ product_id }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
